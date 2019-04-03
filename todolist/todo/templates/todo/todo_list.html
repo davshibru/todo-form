@@ -1,0 +1,57 @@
+
+<html>
+    <head>
+        <title>Django Girls blog</title>
+    </head>
+    <body>
+    	 
+    	 <a href="{% url 'todo_new' %}"> add new action </a>
+
+        <div>
+            <h1><a href="/">TODO list</a></h1>
+        </div>
+
+        <style type="text/css">
+        	.done{
+        		background: #34ee19;
+        	}
+        	.cancer{
+        		background: #ff0000;
+        	}
+        	.doing{
+        		background: #f8ff00
+        	}
+        </style>
+
+        {% for t in to %}
+
+	        {% if t.action == "doing" %}
+	  		<div class="doing">
+	  			<p>action - {{t.todo}} </p>
+	  			<p>status - {{t.action}}</p>
+	  		</div>
+			
+	    	{% endif %}
+
+	    	{% if t.action == "done" %}
+	  		<div class="done">
+	  			<p>action - {{t.todo}} </p>
+	  			<p>status - {{t.action}}</p>
+	  		</div>
+			
+	    	{% endif %}
+
+	    	{% if t.action == "cancer" %}
+	  		<div class="cancer">
+	  			<p>action - {{t.todo}} </p>
+	  			<p>status - {{t.action}}</p>
+	  		</div>
+			
+	    	{% endif %}
+
+
+    		<br/>
+		{% endfor %}
+
+    </body>
+</html>
